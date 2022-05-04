@@ -1,4 +1,6 @@
 # Fastagi
+[![codecov](https://codecov.io/gh/staskobzar/exfastagi/branch/main/graph/badge.svg?token=ghzpqvr6u3)](https://codecov.io/gh/staskobzar/exfastagi)
+
 
 Elixir FastAGI library to build FastAGI servers and process Asterisk calls.
 
