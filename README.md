@@ -1,5 +1,7 @@
 # Fastagi
+[![Elixir CI](https://github.com/staskobzar/exfastagi/actions/workflows/elixir.yml/badge.svg)](https://github.com/staskobzar/exfastagi/actions/workflows/elixir.yml)
 [![codecov](https://codecov.io/gh/staskobzar/exfastagi/branch/main/graph/badge.svg?token=ghzpqvr6u3)](https://codecov.io/gh/staskobzar/exfastagi)
+[![GPLv3 license](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://github.com/staskobzar/exfastagi/blob/master/LICENSE)
 
 
 Elixir FastAGI library to build FastAGI servers and process Asterisk calls.
