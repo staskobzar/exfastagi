@@ -1,6 +1,7 @@
 defmodule Fastagi.ServerTest do
   use ExUnit.Case
 
+  @moduletag :capture_log
   test "start and stop server" do
     assert {:ok, pid} = Fastagi.Server.start_link(0, Fastagi.Dummy)
     assert Process.alive?(pid)
@@ -9,6 +10,7 @@ defmodule Fastagi.ServerTest do
     assert Process.alive?(pid) == false
   end
 
+  @moduletag :capture_log
   test "invalid session" do
     assert {:ok, pid} = Fastagi.Server.start_link(0, Fastagi.Dummy)
 
@@ -22,8 +24,10 @@ defmodule Fastagi.ServerTest do
     :ok = :gen_tcp.send(client, "foo\n\n")
     Process.sleep(100)
     assert :ok = Fastagi.Server.stop()
+    assert Process.alive?(pid) == false
   end
 
+  @moduletag :capture_log
   test "valid session initiated" do
     input =
       "agi_network: yes\n" <>
@@ -44,8 +48,10 @@ defmodule Fastagi.ServerTest do
     :ok = :gen_tcp.send(client, input)
     Process.sleep(100)
     assert :ok = Fastagi.Server.stop()
+    assert Process.alive?(pid) == false
   end
 
+  @moduletag :capture_log
   test "handle closed client connection" do
     assert {:ok, pid} = Fastagi.Server.start_link(0, Fastagi.Dummy)
 
@@ -58,11 +64,12 @@ defmodule Fastagi.ServerTest do
 
     :gen_tcp.close(client)
     assert :ok = Fastagi.Server.stop()
+    assert Process.alive?(pid) == false
   end
 end
 
 defmodule Fastagi.Dummy do
-  use Fastagi.Server
+  use Fastagi
 
   def handle_connection(sess) do
     Fastagi.Session.close(sess)

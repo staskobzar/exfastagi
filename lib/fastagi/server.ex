@@ -1,7 +1,6 @@
 defmodule Fastagi.Server do
   require Logger
   use GenServer
-  @callback handle_connection(socket :: term) :: :ok | :error
 
   def start_link(port, module) do
     GenServer.start_link(__MODULE__, [port, module], name: __MODULE__)
@@ -79,18 +78,6 @@ defmodule Fastagi.Server do
       {:error, err} ->
         Logger.warn("Session init failed: #{err}")
         {:error, err}
-    end
-  end
-
-  defmacro __using__(_opts) do
-    quote location: :keep do
-      @behaviour Fastagi.Server
-
-      def handle_connection(_sock) do
-        raise "attempt to call Fastagi.Server but no handle_connection/1 provided"
-      end
-
-      defoverridable handle_connection: 1
     end
   end
 end

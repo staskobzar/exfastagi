@@ -1,6 +1,16 @@
 defmodule Fastagi.Response do
   defstruct [:code, :result, :value, :endpos, :digit, :results, :data]
 
+  @type t :: %Fastagi.Response{
+          code: integer(),
+          result: String.t(),
+          value: String.t(),
+          endpos: String.t(),
+          digit: String.t(),
+          result: String.t(),
+          data: String.t()
+        }
+
   def parse(input) when is_binary(input) and byte_size(input) > 0 do
     input = String.trim_trailing(input, "\n")
 
