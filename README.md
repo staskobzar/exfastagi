@@ -19,9 +19,7 @@ def deps do
 end
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at <https://hexdocs.pm/fastagi>.
+Documantation for [Fastagi.Session commands](https://hexdocs.pm/fastagi/Fastagi.Session.html).
 
 ## Usage
 Module to Fasagi processes each AGI connection with "handle_connection" callback withing a module that uses Fastagi. Module example:
