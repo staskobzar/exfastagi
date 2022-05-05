@@ -8,8 +8,7 @@ Elixir FastAGI library to build FastAGI servers and process Asterisk calls.
 
 ## Installation
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `fastagi` to your list of dependencies in `mix.exs`:
+The package can be installed by adding `fastagi` to your list of dependencies in `mix.exs`:
 
 ```elixir
 def deps do
@@ -19,7 +18,7 @@ def deps do
 end
 ```
 
-Documantation for [Fastagi.Session commands](https://hexdocs.pm/fastagi/Fastagi.Session.html).
+[Fastagi.Session commands](https://hexdocs.pm/fastagi/Fastagi.Session.html) documentation.
 
 ## Usage
 Module to Fasagi processes each AGI connection with "handle_connection" callback withing a module that uses Fastagi. Module example:
